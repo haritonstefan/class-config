@@ -1,6 +1,6 @@
-import {IsNotEmpty, IsNumber, IsString} from 'class-validator';
-import {Expose, plainToClass, Type} from 'class-transformer';
-import {loadSync} from '../src';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { Expose, Type } from 'class-transformer';
+import { loadSync } from '../src';
 
 test('Should create an instance of the config class with the user property read from the env.', () => {
     // Setup what's expected in the environment
@@ -45,4 +45,4 @@ test('Should transform number value properly.', () => {
 
     const config = loadSync(Config);
     expect(config.int).toBe(expectedValue);
-})
+});

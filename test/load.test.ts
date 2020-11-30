@@ -47,4 +47,4 @@ test('Should transform number value properly.', async () => {
 
     const config = await load(Config);
     expect(config.int).toBe(expectedValue);
-})
+});

@@ -5,8 +5,13 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -Rf ./dist && tsc",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --collect-coverage"
   },
+  "files": [
+    "dist/***",
+    "README.md"
+  ],
   "author": "Stefan Hariton",
   "contributors": [
     {
