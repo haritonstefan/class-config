@@ -8,12 +8,6 @@
     "env"
   ],
   "author": "Stefan Hariton",
-  "contributors": [
-    {
-      "name": "Stefan Hariton",
-      "email": "hariton.stefan@outlook.com"
-    }
-  ],
   "license": "ISC",
   "repository": "git@github.com:haritonstefan/class-config.git",
   "main": "dist/index.js",
