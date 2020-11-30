@@ -2,15 +2,10 @@
   "name": "class-config",
   "version": "2.0.0",
   "description": "Package that creates and instance of the supplied Class, decorated with class-transform and class-validator decorators",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "rm -Rf ./dist && tsc",
-    "test": "jest",
-    "test:coverage": "jest --collect-coverage"
-  },
-  "files": [
-    "dist/***",
-    "README.md"
+  "keywords": [
+    "config",
+    "class-config",
+    "env"
   ],
   "author": "Stefan Hariton",
   "contributors": [
@@ -21,6 +16,16 @@
   ],
   "license": "ISC",
   "repository": "git@github.com:haritonstefan/class-config.git",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -Rf ./dist && tsc",
+    "test": "jest",
+    "test:coverage": "jest --collect-coverage"
+  },
+  "files": [
+    "dist/***",
+    "README.md"
+  ],
   "dependencies": {
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2"
