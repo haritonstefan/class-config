@@ -1,6 +1,6 @@
 {
   "name": "class-config",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Package that creates and instance of the supplied Class, decorated with class-transform and class-validator decorators",
   "main": "dist/index.js",
   "scripts": {
