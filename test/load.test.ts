@@ -1,19 +1,19 @@
-import { IsNotEmpty, IsNumber, IsString, } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { Expose, Type } from 'class-transformer';
 import { load } from '../src';
 
-test('Should create an instance of the config class with the user property read from the env.', () => {
+test('Should create an instance of the config class with the user property read from the env.', async () => {
     class Config {
         @IsString()
         @Expose({ name: 'USER' })
         public user: string;
     }
 
-    const config = load(Config);
+    const config = await load(Config);
     expect(config.user).toBe(process.env.USER);
 });
 
-test('Should not create an instance of the config class if there are missing fields in the env.', () => {
+test('Should not create an instance of the config class if there are missing fields in the env.', async () => {
     class Config {
         @IsString()
         @IsNotEmpty()
@@ -21,12 +21,20 @@ test('Should not create an instance of the config class if there are missing fie
         public gibberish: string;
     }
 
-    expect(() => {
-        load(Config);
-    }).toThrow();
+    await expect(load(Config)).rejects.toEqual([{
+            "children": [],
+            "constraints": {
+                "isNotEmpty": "gibberish should not be empty",
+                "isString": "gibberish must be a string"
+            },
+            "property": "gibberish",
+            "target": { "gibberish": undefined },
+            "value": undefined
+        }]
+    )
 });
 
-test('Should transform number value properly.', () => {
+test('Should transform number value properly.', async () => {
     const expectedValue = 123;
     process.env.int = expectedValue.toString();
 
@@ -37,6 +45,6 @@ test('Should transform number value properly.', () => {
         public int: string;
     }
 
-    const config = load(Config);
+    const config = await load(Config);
     expect(config.int).toBe(expectedValue);
 })
