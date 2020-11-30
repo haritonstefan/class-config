@@ -9,7 +9,10 @@
   ],
   "author": "Stefan Hariton",
   "license": "ISC",
-  "repository": "git@github.com:haritonstefan/class-config.git",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:haritonstefan/class-config.git"
+  },
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -Rf ./dist && tsc",
