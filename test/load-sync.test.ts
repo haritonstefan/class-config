@@ -3,10 +3,6 @@ import { Expose, Type } from 'class-transformer';
 import { loadSync } from '../src';
 
 test('Should create an instance of the config class with the user property read from the env.', () => {
-    // Setup what's expected in the environment
-    const value = 'CLASS_CONFIG';
-    process.env.USER = value;
-
     // Define the class for the test
     class Config {
         @IsString()
@@ -17,7 +13,7 @@ test('Should create an instance of the config class with the user property read 
     // Load the environment values into the above class;
     const config = loadSync(Config);
     // Confirm that the real is equal to the expected
-    expect(config.user).toBe(value);
+    expect(config.user).toBe(process.env.USER);
 });
 
 test('Should not create an instance of the config class if there are missing fields in the env.', () => {
